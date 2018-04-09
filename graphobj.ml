@@ -122,7 +122,7 @@ class circle ?(label : string = "")
               ?col : color       color to  draw the rectangle (black)
               ?layer : int       layer index (20)
               ?textcol : color   color to draw the label (red)
-              ?width : int       width to draw the rectangle (cLINEWIDTH)
+              ?linewidth : int   width to draw the rectangle (cLINEWIDTH)
               m : point          center of the rectangle
               w : int            width of the rectangle
               h : int            height of the rectangle
@@ -145,7 +145,7 @@ class circle ?(label : string = "")
               ?col : color       color to  draw the square (black)
               ?layer : int       layer index (10)
               ?textcol : color   color to draw the label (red)
-              ?width : int       width to draw the square (cLINEWIDTH)
+              ?linewidth : int   width to draw the square (cLINEWIDTH)
               source : point     source point of the edge
               target : point     target point of the edge
  *)
@@ -153,12 +153,12 @@ class circle ?(label : string = "")
      
 (* Class zone -- a zone box that surrounds a set of points
    Arguments: ?label : string      optional label for the edge (default: "")
-   	      	       		   to be placed centered just underneath the box
+                                   to be placed centered just underneath the box
               ?col : color         color to  draw the square (black)
               ?textcol : color     color to draw the label (red)
               ?layer : int         layer index (0)
               ?border : int        amount of whitespace to leave around the 
-                                   bounding box of the enclosed masses
+                                   bounding box of the enclosed masses (20)
               ?linewidth : int     linewidth to draw the square (cLINEWIDTH)
               points : point list  points defining the zone to be enclosed
  *)
