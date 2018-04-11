@@ -7,11 +7,42 @@
 class point (x0 : float) (y0 : float) =   
 object (this)
 
-  (******
-   ****** Your implementation of the point class goes here. Make sure
-   ****** to see points.mli for the signature and documentation of the
-   ****** class.
-   ******) 
+  val mutable xcord = x0    
+  val mutable ycord = y0
+
+  method x : float = xcord
+
+  method y : float = ycord
+
+  method pos : float * float = (xcord, ycord)
+
+  method round : int * int =
+    let round2 (value : float) : int = 
+        int_of_float (floor (value +. 0.5)) 
+    in (round2 xcord, round2 ycord)
+
+  method move (p : point) : unit =
+    xcord <- p#x;
+    ycord <- p#y
+
+  method scale (v : float) : point =
+    new point (xcord *. v) (ycord *. v)
+
+  method plus (p : point) : point =
+    new point (xcord +. p#x) (ycord +. p#y)
+
+  method minus (p : point) : point =
+    new point (xcord -. p#x) (ycord -. p#y)
+
+  method norm : float =
+    sqrt (xcord *. xcord +. ycord *. ycord)
+
+  method distance (p : point) : float =
+    let square x = x *. x in
+    sqrt (square (p#x -. xcord) +. square (p#y -. ycord))
+
+  method unit_vector : point =
+    new point (xcord /. this#norm) (ycord /. this#norm)
 
 end
 
