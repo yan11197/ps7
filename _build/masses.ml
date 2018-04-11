@@ -37,14 +37,15 @@ class mass =
       method! move (p : point) : unit =
         let float_FRAME = float_of_int cFRAMESIZE in
         let above (f : float) : float =
-          if f > float_FRAME then float_FRAME else f 
+          if f > 0. then min float_FRAME f else 0.
         in
         rpos <- super#pos ;
         super#move (new point (above p#x) (above p#y))
 
       method restore_pos : unit =
         let placeholder = rpos in
-        super#move (new point (fst rpos) (snd rpos));
+        let x, y = rpos in
+        super#move (new point x y);
         rpos <- placeholder
 
       (* Forces on the mass *)
