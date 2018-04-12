@@ -4,7 +4,7 @@
 # Target: example.cmi, tags: { warn(A-4-33-40-41-42-43-34-44), byte, compile, extension:mli, file:example.mli, interf, ocaml, quiet, strict-sequence, thread, traverse, use_graphics, use_str, use_unix }
 /Users/jaredyanis/.opam/4.06.0/bin/ocamlc.opt -c -thread -strict-sequence -w A-4-33-40-41-42-43-34-44 -o example.cmi example.mli # cached
 # Target: example.ml.depends, tags: { warn(A-4-33-40-41-42-43-34-44), extension:ml, file:example.ml, ocaml, ocamldep, quiet, strict-sequence, thread, traverse, use_graphics, use_str, use_unix }
-/Users/jaredyanis/.opam/4.06.0/bin/ocamldep.opt -modules example.ml > example.ml.depends
+/Users/jaredyanis/.opam/4.06.0/bin/ocamldep.opt -modules example.ml > example.ml.depends # cached
 # Target: cS51.ml.depends, tags: { warn(A-4-33-40-41-42-43-34-44), extension:ml, file:cS51.ml, ocaml, ocamldep, quiet, strict-sequence, thread, traverse, use_graphics, use_str, use_unix }
 /Users/jaredyanis/.opam/4.06.0/bin/ocamldep.opt -modules cS51.ml > cS51.ml.depends # cached
 # Target: cS51.cmo, tags: { warn(A-4-33-40-41-42-43-34-44), byte, compile, extension:cmo, extension:ml, file:cS51.cmo, file:cS51.ml, implem, ocaml, quiet, strict-sequence, thread, traverse, use_graphics, use_str, use_unix }

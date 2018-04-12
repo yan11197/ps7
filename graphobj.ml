@@ -242,9 +242,11 @@ class zone ?(label : string = "")
       let yl = List.map (fun y_l -> snd y_l#round) points in
       let w = abs (maximum xl - minimum xl) + 2 * border in
       let h = abs (maximum yl - minimum yl) + 2 * border in
+      let (mx, my) = (minimum xl - border, minimum yl - border) in
       set_color col ;
       set_line_width linewidth ;
-      draw_rect (minimum xl - border) (minimum yl - border) w h
+      draw_rect mx my w h ;
+      draw_text_centered label (mx + w / 2, my + h / 2)
   end
 
 (*======================================================================
