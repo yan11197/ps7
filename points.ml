@@ -57,5 +57,4 @@ about your responses and will use them to help guide us in creating
 future assignments.
 ......................................................................*)
 
-let minutes_spent_on_part () : int =
-  failwith "no time estimate provided for points" ;;
+let minutes_spent_on_part () : int = 120 ;;
