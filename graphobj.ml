@@ -150,7 +150,10 @@ class rectangle ?(label : string = "")
       let yc = y - h / 2 in
       set_line_width linewidth;
       set_color background;
-      fill_rect xc yc w h;
+      (* fill_rect xc yc w h;
+       * I commented fill_rect out because the example they gave have
+       * translucent, aka unfilled, rectangles.  I hope thats cool
+       *)
       set_color color;
       draw_rect xc yc w h;
       set_color textcolor;
@@ -204,6 +207,8 @@ class edge ?(label : string = "")
 
     method draw =
       let midway = ((source#plus target)#scale 0.5)#round in
+      set_color col ;
+      set_line_width linewidth ;
       draw_poly_line [|source#round; target#round|] ;
       draw_text_centered label midway
   end
@@ -221,16 +226,27 @@ class edge ?(label : string = "")
               points : point list  points defining the zone to be enclosed
  *)
 
-class zone ?(label : string = "")
+class zone ?(label : string = "")               
            ?(col : color = black)
-           ?(textcol : color = red)
+           ?(textcol : color = red)             
            ?(layer : int = 0)
+           ?(border : int = 20)
            ?(linewidth : int = cLINEWIDTH)
            (points : point list) =
   object
-    inherit rectangle ~label ~col ~layer ~textcol ~linewidth middle width height
+    inherit drawable ~label ~layer col
+    val points : point list = points
+
+    method draw =
+      let xl = List.map (fun x_l -> fst x_l#round) points in
+      let yl = List.map (fun y_l -> snd y_l#round) points in
+      let w = abs (maximum xl - minimum xl) + 2 * border in
+      let h = abs (maximum yl - minimum yl) + 2 * border in
+      set_color col ;
+      set_line_width linewidth ;
+      draw_rect (minimum xl - border) (minimum yl - border) w h
   end
-     
+
 (*======================================================================
 Time estimate
 

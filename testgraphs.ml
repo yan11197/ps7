@@ -83,14 +83,6 @@ let trellis2 () =
                     (3, 0); (1, 4); (1, 5); (1, 3) ] } ;;
   
 
-let planar () =
-  graph { labels = List.map string_of_int (CS51.range 0 5);
-          positions = [ (50, 50); (50, 100); (60, 150);
-                        (90, 45); (100, 110); (110, 170) ];
-          edges = [ (0, 1); (1,2); (2, 5);
-                    (5, 4); (4,3); (3,0);
-                    (1, 4) ] } ;;
-
 let t2 () =
   graph { labels = List.map string_of_int (CS51.range 0 5);
           positions = [ (50, 50); (50, 75); (145, 80);
