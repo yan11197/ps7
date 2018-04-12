@@ -210,6 +210,7 @@ class edge ?(label : string = "")
       set_color col ;
       set_line_width linewidth ;
       draw_poly_line [|source#round; target#round|] ;
+      set_color textcolor;
       draw_text_centered label midway
   end
 
