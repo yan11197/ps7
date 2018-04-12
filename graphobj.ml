@@ -247,6 +247,7 @@ class zone ?(label : string = "")
       set_color col ;
       set_line_width linewidth ;
       draw_rect mx my w h ;
+      set_color textcolor;
       draw_text_centered label (mx + w / 2, my + h / 2)
   end
 
